@@ -157,18 +157,17 @@ p{
     
 }
 /*  Call to Action */
-.cta
+#cta
 {
   text-align: center;
   background-color: #1e7c23;
-  margin-top: 7%;
-  margin-bottom: 7%;
-  padding-right: 7%;
+  padding: 5% 3%;
+   
 }
-.cta{
+.cta-1{
     font-family: 'Montserrat-bold';
-    /* font-weight: bolder; */
-    font-size: .85rem;
+    font-weight: bolder;
+    /* font-size: .85rem; */
     color: #fff;
     border: 1px solid b;
 }
@@ -228,4 +227,22 @@ p{
     margin: 11px auto;
 
 
+}
+.search{
+    margin-top: 4%;
+    align-items: center;
+}
+.menu
+{
+    align-items: center;
+}
+.FirstName
+{
+    font-family: 'Baloo Bhai', cursive;
+    text-align: 15%;
+    display: block;
+    width: 400px;
+    padding: 1px;
+    margin: 11px auto;
+    font-size: 25px;
 }

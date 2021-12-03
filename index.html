@@ -1,20 +1,15 @@
-<!-- <?php
-if(is)
-?> -->
-<!-- php work -->
-
 
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
-  <title>TinDog</title>
+  <title>WildLife</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css">
     
     <script src="https://kit.fontawesome.com/55d680926a.js" crossorigin="anonymous"></script>
 
@@ -72,13 +67,13 @@ if(is)
               <div class="carousel-item active" >
       
                   <!-- <h2>I no longer have to sniff other dogs for love. I've found the hottest Corgi on TinDog. Woof.</h2> -->
-                  <img class="title-image  w-1000" src="images/titl.jpg" alt="dog-profile">
+                  <img class="title-image  w-1000" src="titl.jpg" alt="dog-profile">
                   <!-- <em>Pebbles, New York</em> -->
               </div>
       
               <div class="carousel-item" >
       
-                <img class="title-image  w-1000" src="images/title2.jpg" alt="lady-profile">
+                <img class="title-image  w-1000" src="title2.jpg" alt="lady-profile">
               </div>
             </div>
 
@@ -130,31 +125,31 @@ if(is)
   </div>
 
   <div class="col-lg-8">
-    <form action="insert.php" method="POST">
+    <form action="dbms.php" method="GET">
       <div class="form-group">
           <label for="FirstName">First Name</label>
-          <input type="Firstname" class="form-control" name="First name" required
+          <input type="Firstname" class="form-control" name="First_name" required
               placeholder="Enter your first name ">
 
       </div>
       <div class="form-group">
           <label for="lastName">Last Name</label>
-          <input type="Lastname" class="form-control" name="Last name" required placeholder="Enter your last name ">
+          <input type="Lastname" class="form-control" name="Last_name" required placeholder="Enter your last name ">
 
       </div>
       <div class="form-group">
           <label for="voterID">voterID</label>
-          <input type="voterID" class="form-control" name="voterID" required placeholder="Enter your voterID">
+          <input type="voterID" class="form-control" name="Voter_id" required placeholder="Enter your voterID">
 
       </div>
       <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" name="Email-ID" required placeholder="Enter email">
+          <input type="email" class="form-control" name="Mail" required placeholder="Enter email">
 
       </div>
       <div class="form-group">
-          <label for="Contact Number">Contact Number</label>
-          <input type="Contact Number" class="form-control" name="Contact number" required
+          <label for="Contact Number">Contact_no</label>
+          <input type="Contact Number" class="form-control" name="Contact_no" required
               placeholder="Enter your contact number ">
           <small class="form-text text-muted">We'll never share your contact number with anyone else.</small>
 
@@ -162,7 +157,7 @@ if(is)
 
 
       <div class="form-group">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary" name="fund">Submit</button>
       </div>
 
 
@@ -195,62 +190,18 @@ if(is)
             </div>
             <div class="card-body">
               
-              <form action="insert.php" method="POST">
+              <form action="dbms.php" method="GET">
                 <div class="form-group2">
-                    <label for="FirstName">Value to search</label>
+                    <label for="AnimalName">Value to search</label>
                     <input type="text" class="form-control" name="search1" required placeholder="Enter your value to search">
           
                 </div>
-                
-                <div class="form-group2">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" name="Email-ID1" required placeholder="Enter email">
-          
-                </div>
-                <div class="form-group2">
-                    <label for="Contact Number">Contact Number</label>
-                    <input type="Contact Number" class="form-control" name="Contact number1" required
-                        placeholder="Enter your contact number ">
-                    <small class="form-text text-muted">We'll never share your contact number with anyone else.</small>
-          
-                </div>
-                <button type="button" class="btn btn-lg btn-block btn-outline-dark">Submit</button>
+
+                <button type="submit" class="btn btn-lg btn-block btn-outline-dark search" name="submit1">Search</button>
               </div>
           </div>
           <section class="cta">
-            <table >
-              <tr>
-                <th>
-                  Wildlife Sanctuary
-                </th>
-                <th>
-                  National Park
-                </th>
-                <th>
-                  Status
-                </th>
-                <th>
-                  Population
-                </th>
-              </tr>
-
-              <!-- php work -->
-              <tr>
-                <td>
-                  <!-- php work -->
-                </td>
-                <td>
-                  <!-- php work -->
-                </td>
-                <td>
-                  <!-- php work -->
-                </td>
-                <td>
-                  <!-- php work -->
-                </td>
-              </tr>
-              <!-- php work -->
-            </table>
+            
          </section>
             </form>
             
@@ -263,11 +214,47 @@ if(is)
               <h3>Search By Wildlife</h3>
             </div>
             <div class="card-body">
-              <form action="insert.php" method="POST">
+              <form action="dbms.php" method="GET">
                 <div class="form-group2">
-                    <label for="FirstName">Value to search</label>
-                    <input type="text" class="form-control" name="search2" required placeholder="Enter your value to search">
-          
+                    <label for="FirstName">Value to search</label><br>
+            
+                    <!-- <input type="text" class="custom-select" class="form-control" name="search2" required placeholder="Enter your value to search"> -->
+                    <select class="custom-select menu form-control">
+                      <option selected>Value to search</option>
+                      <option value="1">Arial Island
+                        </option>
+                      <option value="2">Amchang
+                        </option>
+                      <option value="3">Achanakmar</option>
+                      <option value="4">Abubshehar</option>
+                      <option value="5">Adichunchunagiri </option>
+                      <option value="6">Aralam</option>
+                      <option value="7">Amba Barwa</option>
+                      <option value="8">Barela Jheel Salim Ali Bird</option>
+                      <option value="9">Balaram Amji</option>
+                      <option value="10">Bandli</option>
+                      <option value="11">Baltal-Thajwas</option>
+                      <option value="12">Bagdara</option>
+                      <option value="13">Bir Dosanjh</option>
+                      <option value="14">City Birds</option>
+                      <option value="15">Dalma</option>
+                      <option value="16">Dampa</option>
+                      <option value="17">Indira Gandhi</option>
+                      <option value="18">Kinnersani</option>
+                      <option value="19">Kishanpur</option>
+                      <option value="20">Kyongnosla Alpine</option>
+                      <option value="21">Mount Abu</option>
+                      <option value="22">Mahananda</option>
+                      <option value="23">Nandaur</option>
+                      <option value="24">Nongkhyllem</option>
+                      <option value="25">Pulie Badze</option>
+                      <option value="26">Rowa</option>
+                      <option value="27">Sukhna Lake</option>
+                      <option value="28">Tikarpada </option>
+                      <option value="29">Yangoupokpi-Lokchao </option>
+
+                    </select>
+  
                 </div>
                 
                 <div class="form-group2">
@@ -282,43 +269,11 @@ if(is)
                     <small class="form-text text-muted">We'll never share your contact number with anyone else.</small>
           
                 </div>
-                <button type="button" class="btn btn-lg btn-block btn-outline-dark">Submit</button>
+                <button type="submit" class="btn btn-lg btn-block btn-outline-dark" name="submit2">Submit</button>
               </div>
           </div>
           <section class="cta">
-            <table>
-              <tr>
-                <th>
-                  Wildlife Sanctuary
-                </th>
-                <th>
-                  National Park
-                </th>
-                <th>
-                  Status
-                </th>
-                <th>
-                  Population
-                </th>
-              </tr>
-
-              <!-- php work -->
-              <tr>
-                <td>
-                  <!-- php work -->
-                </td>
-                <td>
-                  <!-- php work -->
-                </td>
-                <td>
-                  <!-- php work -->
-                </td>
-                <td>
-                  <!-- php work -->
-                </td>
-              </tr>
-              <!-- php work -->
-            </table>
+           
            </section>
             </form>
             
@@ -335,7 +290,7 @@ if(is)
             <div class="card-body">
               
 
-              <form action="insert.php" method="POST" >
+              <form action="dbms.php" method="GET" >
                 <div class="form-group2">
                     <label for="FirstName">Value to search</label>
                     <input type="text" class="form-control" name="search3" required placeholder="Enter your value to search">
@@ -354,43 +309,11 @@ if(is)
                     <small class="form-text text-muted">We'll never share your contact number with anyone else.</small>
           
                 </div>
-                <button type="button" class="btn btn-lg btn-block btn-outline-dark">Submit</button>
+                <button type="submit" class="btn btn-lg btn-block btn-outline-dark" name="submit3">Submit</button>
               </div>
           </div>
              <section class="cta">
-            <table >
-              <tr>
-                <th>
-                  Wildlife Sanctuary
-                </th>
-                <th>
-                  National Park
-                </th>
-                <th>
-                  Status
-                </th>
-                <th>
-                  Population
-                </th>
-              </tr>
-
-              <!-- php work -->
-              <tr>
-                <td>
-                  <!-- php work -->
-                </td>
-                <td>
-                  <!-- php work -->
-                </td>
-                <td>
-                  <!-- php work -->
-                </td>
-                <td>
-                  <!-- php work -->
-                </td>
-              </tr>
-              <!-- php work -->
-            </table>
+           
           </section>
             </form>
             
@@ -405,14 +328,11 @@ if(is)
 
   <!-- Call to Action -->
 
-  <!-- <section id="cta">
-
-    <h3 class="cta-1">Find the True Love of Your Dog's Life Today.</h3>
-    <button type="button" class="btn btn-secondary btn-lg download-button"><i class="fab fa-apple"></i> Download</button>
-    <button type="button" class="btn btn-outline-light btn-lg download-button"><i class="fab fa-google-play"></i> Download</button>
-
-  </section> -->
-
+  <section id="cta">
+    <h3 class="cta-1">ATTACHED FILES!!.</h3>
+    <a type="button" href="#pricing" class="btn btn-secondary btn-lg download-button"><i class="fas fa-file"></i> SQL-FILE</a>
+    <a type="button" href="#pricing"  class="btn btn-outline-light btn-lg download-button"><i class="fas fa-project-diagram"></i> ER-daigram</a>
+  </section>
 
   <!-- Footer -->
 
