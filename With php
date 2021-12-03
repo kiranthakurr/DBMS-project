@@ -1,0 +1,140 @@
+<style>
+table,tr,td
+{
+    border: 1px solid black;
+    
+}
+
+.centre{
+ margin-left: auto;
+margin-right:auto; 
+margin-bottom : 100 px;
+
+}
+
+</style>
+
+
+
+<?php 
+$server = "localhost";
+
+$username = "root";
+
+$password = "";
+
+$database ="Wildlife";
+
+$insert = false;
+ $con = mysqli_connect($server, $username, $password,$database);
+     
+
+ 
+    if (isset($_GET['fund'])) {
+      
+        $fname = $_GET['First_name'];
+        $lname = $_GET['Last_name'];
+        $id=$_GET['Voter_id'];
+        $mail=$_GET['Mail'];
+        $contact=$_GET['Contact_no'];
+    
+        $sql = "INSERT INTO `Wildlife`.`funds` (`First_Name`, `Last_Name`, `Voter_id`, `Contact_no`, `Mail`) VALUES('$fname','$lname', '$id','$contact','$mail');";
+    
+            if($con->query($sql) == true){
+            echo "Successfully inserted";
+           $insert = true;}
+         
+    }
+    elseif (isset($_GET['submit1'])) {
+       $animal_name = $_GET['search1'];
+      $sql ="SELECT DISTINCT  wildlife_info.wildlife_sanctuary,national_park_info.`national park name`, state.S_Name, status.status
+        FROM species_info1 ,(((national_park_info
+        INNER JOIN wildlife_info ON national_park_info.`state id` = wildlife_info.state_code)
+        INNER JOIN state ON national_park_info.`state id`  = state.S_Code)
+        INNER JOIN status ON national_park_info.`sp_code` = status.ID)
+         WHERE species_info1.Species_Name=  '".$animal_name."'
+         ORDER BY state.S_Name ASC;";
+       $result =$con->query($sql);
+       
+       if($result->num_rows > 0){
+        echo "<table class='centre'>";
+        echo"<tr>";
+        echo"<th>National Park Name</th>";
+        echo"<th>Wildlife Sanctuary Name</th>";
+        echo"<th>State Name</th>";
+        echo"<th>Status</th>";
+     echo"</tr>";
+     
+           while($row = $result-> fetch_assoc()){
+               echo "<tr><td>" . $row["national park name"] . "</td><td>" . $row["wildlife_sanctuary"].  "</td><td>"  . $row["S_Name"] . "</td><td>". $row["status"]."</td></tr> <br>" ;
+          
+           }
+
+       }
+      
+    }
+     
+
+    elseif (isset($_GET['submit2'])) {
+        $wildlife_name = $_GET['search2'];
+        $sql ="SELECT DISTINCT  wildlife_info.wildlife_sanctuary,national_park_info.`national park name`, state.S_Name, status.status
+          FROM species_info1 ,(((national_park_info
+          INNER JOIN wildlife_info ON national_park_info.`state id` = wildlife_info.state_code)
+          INNER JOIN state ON national_park_info.`state id`  = state.S_Code)
+          INNER JOIN status ON national_park_info.`sp_code` = status.ID)
+           WHERE species_info1.Species_Name=  '".$wildlife_name."'
+           ORDER BY state.S_Name ASC;";
+         $result =$con->query($sql);
+         
+         if($result->num_rows > 0){
+          echo "<table class='centre'>";
+          echo"<tr>";
+          echo"<th>National Park Name</th>";
+          echo"<th>Wildlife Sanctuary Name</th>";
+          echo"<th>State Name</th>";
+          echo"<th>Status</th>";
+       echo"</tr>";
+       
+             while($row = $result-> fetch_assoc()){
+                 echo "<tr><td>" . $row["national park name"] . "</td><td>" . $row["wildlife_sanctuary"].  "</td><td>"  . $row["S_Name"] . "</td><td>". $row["status"]."</td></tr> <br>" ;
+            
+             }
+  
+         }
+    }
+    elseif (isset($_GET['submit3'])) {
+        $national_name = $_GET['search3'];
+        $sql ="SELECT DISTINCT  wildlife_info.wildlife_sanctuary,national_park_info.`national park name`, state.S_Name, status.status
+          FROM species_info1 ,(((national_park_info
+          INNER JOIN wildlife_info ON national_park_info.`state id` = wildlife_info.state_code)
+          INNER JOIN state ON national_park_info.`state id`  = state.S_Code)
+          INNER JOIN status ON national_park_info.`sp_code` = status.ID)
+           WHERE species_info1.Species_Name=  '".$national_name."'
+           ORDER BY state.S_Name ASC;";
+         $result =$con->query($sql);
+         
+         if($result->num_rows > 0){
+          echo "<table class='centre'>";
+          echo"<tr>";
+          echo"<th>National Park Name</th>";
+          echo"<th>Wildlife Sanctuary Name</th>";
+          echo"<th>State Name</th>";
+          echo"<th>Status</th>";
+       echo"</tr>";
+       
+             while($row = $result-> fetch_assoc()){
+                 echo "<tr><td>" . $row["national park name"] . "</td><td>" . $row["wildlife_sanctuary"].  "</td><td>"  . $row["S_Name"] . "</td><td>". $row["status"]."</td></tr> <br>" ;
+            
+             } 
+    }
+}
+    else{
+        echo "No";
+        $con->close();
+     }
+
+
+
+     ?> 
+   <!-- </table>' -->
+
