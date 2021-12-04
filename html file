@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -127,24 +126,24 @@
   <div class="col-lg-8">
     <form action="dbms.php" method="GET">
       <div class="form-group">
-          <label for="FirstName">First Name</label>
-          <input type="Firstname" class="form-control" name="First_name" required
-              placeholder="Enter your first name ">
+          <label for="text">Name</label>
+          <input type="text" class="form-control" name="name" required
+              placeholder="Enter your Name ">
 
       </div>
       <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input type="Lastname" class="form-control" name="Last_name" required placeholder="Enter your last name ">
+          <label for="text">State</label>
+          <input type="text" class="form-control" name="state" required placeholder="Enter your state name ">
 
       </div>
       <div class="form-group">
-          <label for="voterID">voterID</label>
-          <input type="voterID" class="form-control" name="Voter_id" required placeholder="Enter your voterID">
+          <label for="Amount">Donation</label>
+          <input type="Amount" class="form-control" name="donation" required placeholder="Enter a custom amount">
 
       </div>
       <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" name="Mail" required placeholder="Enter email">
+          <input type="email" class="form-control" name="Mail" required placeholder="Enter your email ">
 
       </div>
       <div class="form-group">
@@ -157,7 +156,7 @@
 
 
       <div class="form-group">
-          <button type="submit" class="btn btn-primary" name="fund">Submit</button>
+          <button type="submit" class="btn btn-primary" name="fund">Donate Now</button>
       </div>
 
 
@@ -193,11 +192,55 @@
               <form action="dbms.php" method="GET">
                 <div class="form-group2">
                     <label for="AnimalName">Value to search</label>
-                    <input type="text" class="form-control" name="search1" required placeholder="Enter your value to search">
-          
+                    <!-- <input type="text" class="form-control" name="search1" required placeholder="Enter your value to search"> -->
+                    <select class="custom-select menu form-control" name="search1">
+                      <option selected>Value to search</option>
+                      <option value="Aardvark">Aardvark</option>
+                      <option value="Antelope">Antelope </option>
+                      <option value="Bengal tiger">Bengal tiger</option>
+                      <option value="Black Buck">Black Buck</option>
+                      <option value="Black Rhino">Black Rhino</option>
+                      <option value="Chameleon">Chameleon</option>
+                      <option value="Cape lion">Cape lion</option>
+                      <option value="Canadian Horse">Canadian Horse</option>
+                      <option value="Dhole">Dhole</option>
+                      <option value="Dolphins">Dolphins</option>
+                      <option value="Dodo">Dodo</option>
+                      <option value="Elephants">Elephants</option>
+                      <option value="Elephant Shrew">Elephant Shrew</option>
+                      <option value="Elephant Seal">Elephants Seal</option>
+                      <option value="Frog">Frog</option>
+                      <option value="Fallow Deer">Fallow Deer</option>
+                      <option value="Gaur">Gaur</option>
+                      <option value="Giraffe">Giraffe</option>
+                      <option value="Golden">Golden</option>
+                      <option value="Gharial">Gharial</option>
+                      <option value="Goat">Goat</option>
+                      <option value="Hornbill">Hornbill</option>
+                      <option value="Horn Shark">Horn Shark</option>
+                      <option value="Hummingbird">Hummingbird</option>
+                      <option value="Hyena">Hyena</option>
+                      <option value="Indian Giant Squirrel">Indian Giant Squirrel</option>
+                      <option value="Indian leopard">Indian leopard</option>
+                      <option value="Indian Elephant">Indian Elephant</option>
+                      <option value="Indian Palm Squirrels">Indian Palm Squirrels</option>
+                      <option value="Jaguar">Jaguar</option>
+                      <option value="jellyfish">jellyfish</option>
+                      <option value="Jackal">Jackal</option>
+                      <option value="Spotted Deer">Spotted Deer</option>
+                      <option value="Striped Hyena">Striped Hyena</option>
+                      <option value="Sloth Bear">Sloth Bear</option>
+                      <option value="Wild Boar">Wild Boar</option>
+                      <option value="Zebra">Zebra</option>
+                      <option value="Zebra Finch">Zebra Finch</option>
+                      <option value="Zebra Mussels">Zebra Mussels</option>
+                      <option value="Zebra Mussels">Zebra Mussels</option>
+                      <option value="Zebra Shark">Zebra Shark</option>
+                      
+                    </select>
                 </div>
 
-                <button type="submit" class="btn btn-lg btn-block btn-outline-dark" name="submit1">Search</button>
+                <button type="submit" class="btn btn-lg btn-block btn-outline-dark search" name="submit1">Search</button>
               </div>
           </div>
           <section class="cta">
@@ -216,24 +259,48 @@
             <div class="card-body">
               <form action="dbms.php" method="GET">
                 <div class="form-group2">
-                    <label for="FirstName">Value to search</label>
-                    <input type="text" class="form-control" name="search2" required placeholder="Enter your value to search">
-          
+                    <label for="FirstName">Value to search</label><br>
+            
+                    <!-- <input type="text" class="custom-select" class="form-control" name="search2" required placeholder="Enter your value to search"> -->
+                    <select class="custom-select menu form-control" name="search2">
+                      <option selected>Value to search</option>
+                      <option value="Arial Island">Arial Island
+                        </option>
+                      <option value="Amchang">Amchang
+                        </option>
+                      <option value="Achanakmar">Achanakmar</option>
+                      <option value="Abubshehar">Abubshehar</option>
+                      <option value="Adichunchunagiri ">Adichunchunagiri </option>
+                      <option value="Aralam">Aralam</option>
+                      <option value="Amba Barwa">Amba Barwa</option>
+                      <option value="Barela Jheel Salim Ali Bird">Barela Jheel Salim Ali Bird</option>
+                      <option value="Balaram Amji">Balaram Amji</option>
+                      <option value="Bandli">Bandli</option>
+                      <option value="Baltal-Thajwas">Baltal-Thajwas</option>
+                      <option value="Bagdara">Bagdara</option>
+                      <option value="Bir Dosanjh">Bir Dosanjh</option>
+                      <option value="City Birds">City Birds</option>
+                      <option value="Dalma">Dalma</option>
+                      <option value="Dampa">Dampa</option>
+                      <option value="Indira Gandhi">Indira Gandhi</option>
+                      <option value="Kinnersani">Kinnersani</option>
+                      <option value="Kishanpur">Kishanpur</option>
+                      <option value="Kyongnosla Alpine">Kyongnosla Alpine</option>
+                      <option value="Mount Abu">Mount Abu</option>
+                      <option value="Mahananda">Mahananda</option>
+                      <option value="Nandaur">Nandaur</option>
+                      <option value="Nongkhyllem">Nongkhyllem</option>
+                      <option value="Pulie Badze">Pulie Badze</option>
+                      <option value="Rowa">Rowa</option>
+                      <option value="Sukhna Lake">Sukhna Lake</option>
+                      <option value="Tikarpada">Tikarpada</option>
+                      <option value="Yangoupokpi-Lokchao">Yangoupokpi-Lokchao</option>
+
+                    </select>
+  
                 </div>
                 
-                <div class="form-group2">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" name="Email-ID2" required placeholder="Enter email">
-          
-                </div>
-                <div class="form-group2">
-                    <label for="Contact Number">Contact Number</label>
-                    <input type="Contact Number" class="form-control" name="Contact number2" required
-                        placeholder="Enter your contact number ">
-                    <small class="form-text text-muted">We'll never share your contact number with anyone else.</small>
-          
-                </div>
-                <button type="submit" class="btn btn-lg btn-block btn-outline-dark" name="submit2">Submit</button>
+                <button type="submit" class="btn btn-lg btn-block btn-outline-dark" name="submit2">Search</button>
               </div>
           </div>
           <section class="cta">
@@ -257,23 +324,40 @@
               <form action="dbms.php" method="GET" >
                 <div class="form-group2">
                     <label for="FirstName">Value to search</label>
-                    <input type="text" class="form-control" name="search3" required placeholder="Enter your value to search">
-          
+                    <!-- <input type="text" class="form-control" name="search3" required placeholder="Enter your value to search"> -->
+                    <select class="custom-select menu form-control" name="search3">
+                      <option selected>Value to search</option>
+                      <option value="Anamudi Shola NP">Anamudi Shola NP</option>
+                      <option value="Anshi NP">Anshi NP </option>
+                      <option value="Balphakram NP">Balphakram NP</option>
+                      <option value="Betla NP">Betla NP</option>
+                      <option value="Bhitarkanika NP">Bhitarkanika NP</option>
+                      <option value="Buxa NP">Buxa NP</option>
+                      <option value="Campbell Bay National Park">Campbell Bay National Park</option>
+                      <option value="Chandoli NP">Chandoli NP</option>
+                      <option value="City Forest (Salim Ali) NP">City Forest (Salim Ali) NP</option>
+                      <option value="Clouded Leopard NP">Clouded Leopard NP</option>
+                      <option value="Corbett NP">Corbett NP</option>
+                      <option value="Desert NP">Desert NP</option>
+                      <option value="Dibru-Saikhowa National Park">Dibru-Saikhowa National Park</option>
+                      <option value="Dudhwa NP">Dudhwa NP</option>
+                      <option value="Great Himalayan NP">Great Himalayan NP</option>
+                      <option value="Guindy NP">Guindy NP</option>
+                      <option value="Guru Ghasidas ">Guru Ghasidas </option>
+                      <option value="Intanki NP">Intanki NP</option>
+                      <option value="Kalesar NP">Kalesar NP</option>
+                      <option value="Kasu Brahmananda Reddy NP">Kasu Brahmananda Reddy NP</option>
+                      <option value="Keibul-Lamjao NP">Keibul-Lamjao NP</option>
+                      <option value="Khangchendzonga NP">Khangchendzonga NP</option>
+                      <option value="Mollem NP">Mollem NP</option>
+                      <option value="Mouling National Park">Mouling National Park</option>
+                      <option value="Murlen NP">Murlen NP</option>
+                      <option value="Papikonda National Park">Papikonda National Park</option>
+                      <option value="Valmiki NP">/option> Valmiki NP</option>
+                      <option value="Vansda NP">Vansda NP</option>
+                    </select>
                 </div>
-                
-                <div class="form-group2">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" name="Email-ID3" required placeholder="Enter email">
-          
-                </div>
-                <div class="form-group2">
-                    <label for="Contact Number">Contact Number</label>
-                    <input type="Contact Number" class="form-control" name="Contact number3" required
-                        placeholder="Enter your contact number ">
-                    <small class="form-text text-muted">We'll never share your contact number with anyone else.</small>
-          
-                </div>
-                <button type="submit" class="btn btn-lg btn-block btn-outline-dark" name="submit3">Submit</button>
+                <button type="submit" class="btn btn-lg btn-block btn-outline-dark" name="submit3">Search</button>
               </div>
           </div>
              <section class="cta">
@@ -290,14 +374,26 @@
   </section>
 
 
+  
+               <!-- Login-->
+              
+               <!-- <div style="text-align:center " class="logindiv" >
+              <form name="xyz" action="dbms.php" method="GET" >
+                <h1>LOGIN</h1>
+                <input type="text" name="name" placeholder="Username"><br>
+                <input type="text" name="password" placeholder="Password"><br>
+                <button type="submit" class="btn btn-secondary" name="login">Login</button>
+              </form>
+              </div> -->
+              
+
   <!-- Call to Action -->
 
-  <!-- <section id="cta">
-    <h3 class="cta-1">Find the True Love of Your Dog's Life Today.</h3>
-    <button type="button" class="btn btn-secondary btn-lg download-button"><i class="fab fa-apple"></i> Download</button>
-    <button type="button" class="btn btn-outline-light btn-lg download-button"><i class="fab fa-google-play"></i> Download</button>
-  </section> -->
-
+  <section id="cta">
+    <h3 class="cta-1">ATTACHED FILES!!.</h3>
+    <a type="button" href="#pricing" class="btn btn-secondary btn-lg download-button"><i class="fas fa-file"></i> SQL-FILE</a>
+    <a type="button" href="#pricing"  class="btn btn-outline-light btn-lg download-button"><i class="fas fa-project-diagram"></i> ER-daigram</a>
+  </section>
 
   <!-- Footer -->
 
