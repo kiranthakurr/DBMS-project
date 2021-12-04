@@ -8,7 +8,7 @@ table,tr,td
 .centre{
  margin-left: auto;
 margin-right:auto; 
-margin-bottom : 100 px;
+margin-bottom : 100 px;1
 
 }
 
@@ -32,13 +32,13 @@ $insert = false;
  
     if (isset($_GET['fund'])) {
       
-        $fname = $_GET['First_name'];
-        $lname = $_GET['Last_name'];
-        $id=$_GET['Voter_id'];
+        $name = $_GET['name'];
+        $state = $_GET['state'];
+        $amount=$_GET['donation'];
         $mail=$_GET['Mail'];
         $contact=$_GET['Contact_no'];
     
-        $sql = "INSERT INTO `Wildlife`.`funds` (`First_Name`, `Last_Name`, `Voter_id`, `Contact_no`, `Mail`) VALUES('$fname','$lname', '$id','$contact','$mail');";
+        $sql = "INSERT INTO `Wildlife`.`funds` (`Name`, `State`, `Amount`, `Contact_no`, `Mail`) VALUES('$name','$state', '$amount','$contact','$mail');";
     
             if($con->query($sql) == true){
             echo "Successfully inserted";
@@ -47,13 +47,12 @@ $insert = false;
     }
     elseif (isset($_GET['submit1'])) {
        $animal_name = $_GET['search1'];
-      $sql ="SELECT DISTINCT  wildlife_info.wildlife_sanctuary,national_park_info.`national park name`, state.S_Name, status.status
-        FROM species_info1 ,(((national_park_info
-        INNER JOIN wildlife_info ON national_park_info.`state id` = wildlife_info.state_code)
-        INNER JOIN state ON national_park_info.`state id`  = state.S_Code)
-        INNER JOIN status ON national_park_info.`sp_code` = status.ID)
-         WHERE species_info1.Species_Name=  '".$animal_name."'
-         ORDER BY state.S_Name ASC;";
+      $sql ="select distinct wildlife_info.wildlife_sanctuary ,national_park_info.`national park name`, state.S_name, species_info1.species_Name , status.status
+      from wildlife_info inner join  state on wildlife_info.state_code= state.S_code 
+      inner join national_park_info on  national_park_info.`state id` =state.S_code
+      inner join  species_info1 on  wildlife_info.species_code=species_info1.species_code 
+      inner join status on wildlife_info.species_code=status.ID
+      where species_Name = '".$animal_name."' ; ";
        $result =$con->query($sql);
        
        if($result->num_rows > 0){
@@ -62,11 +61,12 @@ $insert = false;
         echo"<th>National Park Name</th>";
         echo"<th>Wildlife Sanctuary Name</th>";
         echo"<th>State Name</th>";
+        echo"<th>Species Name</th>";
         echo"<th>Status</th>";
      echo"</tr>";
      
            while($row = $result-> fetch_assoc()){
-               echo "<tr><td>" . $row["national park name"] . "</td><td>" . $row["wildlife_sanctuary"].  "</td><td>"  . $row["S_Name"] . "</td><td>". $row["status"]."</td></tr> <br>" ;
+               echo "<tr><td>" . $row["national park name"] . "</td><td>" . $row["wildlife_sanctuary"].  "</td><td>"  . $row["S_name"] . "</td><td>". $row["species_Name"]."</td><td>". $row["status"]."</td></tr> <br>" ;
           
            }
 
@@ -85,7 +85,7 @@ $insert = false;
            WHERE species_info1.Species_Name=  '".$wildlife_name."'
            ORDER BY state.S_Name ASC;";
          $result =$con->query($sql);
-         
+        //  echo"$wildlife_name";
          if($result->num_rows > 0){
           echo "<table class='centre'>";
           echo"<tr>";
@@ -128,6 +128,32 @@ $insert = false;
              } 
     }
 }
+elseif(isset($_GET['login'])){
+    $sql ="Select * from Funds";
+   $result =$con->query($sql);
+   
+   if($result->num_rows > 0){
+    echo "<table class='centre'>";
+    echo"<tr>";
+    echo"<th>Name</th>";
+    echo"<th>State</th>";
+    echo"<th>Donation</th>";
+    echo"<th>E-Mail</th>";
+    echo"<th>Contact</th>";
+ echo"</tr>";
+
+ $paisa=0;
+ 
+       while($row = $result-> fetch_assoc()){
+           echo "<tr><td>" . $row["Name"] . "</td><td>" . $row["State"].  "</td><td>"  . $row["Amount"] . "</td><td>". $row["Mail"]."</td><td>". $row["Contact_no"]."</td></tr> <br>" ;
+           $paisa+=$row['Amount'];
+       } 
+
+       echo"TOTOAL FUNDING COLLECTED = ";
+       echo $paisa;
+}
+
+}
     else{
         echo "No";
         $con->close();
@@ -137,4 +163,6 @@ $insert = false;
 
      ?> 
    <!-- </table>' -->
+
+
 
