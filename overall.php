@@ -77,26 +77,25 @@ $insert = false;
 
     elseif (isset($_GET['submit2'])) {
         $wildlife_name = $_GET['search2'];
-        $sql ="SELECT DISTINCT  wildlife_info.wildlife_sanctuary,national_park_info.`national park name`, state.S_Name, status.status
-          FROM species_info1 ,(((national_park_info
-          INNER JOIN wildlife_info ON national_park_info.`state id` = wildlife_info.state_code)
-          INNER JOIN state ON national_park_info.`state id`  = state.S_Code)
-          INNER JOIN status ON national_park_info.`sp_code` = status.ID)
-           WHERE species_info1.Species_Name=  '".$wildlife_name."'
-           ORDER BY state.S_Name ASC;";
+        $sql ="SELECT distinct species_Name ,S_name as STATE, FOOD , status.status
+        from wildlife_info inner join  state on wildlife_info.state_code= state.S_code 
+        inner join  species_info1 on  wildlife_info.species_code=species_info1.species_code 
+        inner join status on wildlife_info.species_code=status.ID
+        where wildlife_info.wildlife_sanctuary= '".$wildlife_name."' 
+        ORDER BY state.S_Name ASC;";
          $result =$con->query($sql);
         //  echo"$wildlife_name";
          if($result->num_rows > 0){
           echo "<table class='centre'>";
           echo"<tr>";
-          echo"<th>National Park Name</th>";
-          echo"<th>Wildlife Sanctuary Name</th>";
+          echo"<th>Species Name</th>";
           echo"<th>State Name</th>";
+          echo"<th>Food</th>";
           echo"<th>Status</th>";
        echo"</tr>";
        
              while($row = $result-> fetch_assoc()){
-                 echo "<tr><td>" . $row["national park name"] . "</td><td>" . $row["wildlife_sanctuary"].  "</td><td>"  . $row["S_Name"] . "</td><td>". $row["status"]."</td></tr> <br>" ;
+                 echo "<tr><td>" . $row["species_Name"] . "</td><td>" . $row["STATE"].  "</td><td>"  .$row["FOOD"] ."</td><td>"  .  $row["status"] ."</td></tr> <br>" ;
             
              }
   
@@ -104,26 +103,24 @@ $insert = false;
     }
     elseif (isset($_GET['submit3'])) {
         $national_name = $_GET['search3'];
-        $sql ="SELECT DISTINCT  wildlife_info.wildlife_sanctuary,national_park_info.`national park name`, state.S_Name, status.status
-          FROM species_info1 ,(((national_park_info
-          INNER JOIN wildlife_info ON national_park_info.`state id` = wildlife_info.state_code)
-          INNER JOIN state ON national_park_info.`state id`  = state.S_Code)
-          INNER JOIN status ON national_park_info.`sp_code` = status.ID)
-           WHERE species_info1.Species_Name=  '".$national_name."'
-           ORDER BY state.S_Name ASC;";
+        $sql ="SELECT distinct species_Name ,S_name as STATE , FOOD , status.status
+        from national_park_info inner join  state on national_park_info.`state id`= state.S_code 
+        inner join  species_info1 on  national_park_info.`sp_code`=species_info1.species_code
+        inner join status on national_park_info.sp_code=status.ID 
+        where national_park_info.`national park name`= '".$national_name."'  ; ";
          $result =$con->query($sql);
          
          if($result->num_rows > 0){
           echo "<table class='centre'>";
           echo"<tr>";
-          echo"<th>National Park Name</th>";
-          echo"<th>Wildlife Sanctuary Name</th>";
-          echo"<th>State Name</th>";
+          echo"<th>Species Name</th>";
+          echo"<th>State</th>";
+          echo"<th>Food</th>";
           echo"<th>Status</th>";
        echo"</tr>";
        
              while($row = $result-> fetch_assoc()){
-                 echo "<tr><td>" . $row["national park name"] . "</td><td>" . $row["wildlife_sanctuary"].  "</td><td>"  . $row["S_Name"] . "</td><td>". $row["status"]."</td></tr> <br>" ;
+                echo "<tr><td>" . $row["species_Name"] . "</td><td>" . $row["STATE"].  "</td><td>"  .$row["FOOD"] ."</td><td>"  .  $row["status"] ."</td></tr> <br>" ;
             
              } 
     }
@@ -163,6 +160,4 @@ elseif(isset($_GET['login'])){
 
      ?> 
    <!-- </table>' -->
-
-
 
